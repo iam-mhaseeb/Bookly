@@ -17,7 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 
 import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
-import com.bookly.bookly.Fragments.AllBooksFragment;
+import com.bookly.bookly.Fragments.Biography;
 import com.bookly.bookly.R;
 
 import java.util.ArrayList;
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new AllBooksFragment(), "All Books");
+        adapter.addFrag(new Biography(), "Biography");
         viewPager.setAdapter(adapter);
     }
     private boolean isNetworkAvailable() {

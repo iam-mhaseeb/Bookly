@@ -11,26 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bookly.bookly.Adapters.BooksAdapter;
-import com.bookly.bookly.Logic.AllBooks;
 import com.bookly.bookly.R;
-import com.bookly.bookly.Utils.ListFetcher;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AllBooksFragment extends Fragment {
+public class Biography extends Fragment {
 
     RecyclerView recyclerView;
     Context c;
-    private BooksAdapter adapter;
-    public List<Object> dList;
-
-    public AllBooksFragment() {
+    public Biography() {
         // Required empty public constructor
     }
 
@@ -39,10 +30,7 @@ public class AllBooksFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //getActivity().getTheme().applyStyle(R.style.red,true);
-        // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_all_books, container, false);
-        dList = new ArrayList<Object>();
+        View v =  inflater.inflate(R.layout.fragment_biography, container, false);
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(c);
         //mLayoutManager.setReverseLayout(true);
@@ -50,17 +38,6 @@ public class AllBooksFragment extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         c = getActivity();
-        new AllBooks(
-                new ListFetcher.OnDataloadListListener(){
-                    @Override
-                    public void onDataloadListReady(List<Object> list) {
-                        dList = list;
-                        dList.size();
-                        adapter = new BooksAdapter(c, dList);
-                        recyclerView.setAdapter(adapter);
-                    }
-                }
-                ,c).execute();
         return v;
     }
 }
