@@ -7,13 +7,14 @@ package com.bookly.bookly.Classes;
 public class Book {
     String title;
     String image;
-    String desc;
     String link;
 
-    public Book(String title, String image, String desc, String link) {
+    public Book() {
+    }
+
+    public Book(String title, String image, String link) {
         this.title = title;
         this.image = image;
-        this.desc = desc;
         this.link = link;
     }
 
@@ -31,14 +32,6 @@ public class Book {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
     }
 
     public String getLink() {
