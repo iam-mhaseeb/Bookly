@@ -49,7 +49,7 @@ public class BooksHolder extends RecyclerView.ViewHolder {
         Glide.with(mContext)
                 .load(imgUrl)
                 .thumbnail(Glide.with(mContext)
-                        .load(R.mipmap.ic_launcher))
+                        .load(R.drawable.launcer_icon))
                 .into(bookImg);
     }
 

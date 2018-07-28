@@ -16,6 +16,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
 import com.bookly.bookly.Fragments.Biography;
@@ -36,6 +38,9 @@ import com.kobakei.ratethisapp.RateThisApp;
 import java.util.ArrayList;
 import java.util.List;
 
+import mehdi.sakout.aboutpage.AboutPage;
+import mehdi.sakout.aboutpage.Element;
+
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
@@ -49,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case  R.id.about:{
+                startActivity(new Intent(MainActivity.this,AboutActivity.class));
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
