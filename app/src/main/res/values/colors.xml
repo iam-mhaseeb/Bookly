@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#FF4081</color>
+    <color name="colorPrimaryDark">#F50057</color>
+    <color name="colorAccent">#C51162</color>
+    <color name="fontcolor">#FF80AB</color>
+    <color name="bgM">#CFD8DC</color>
+
+
+
+    <color name="redp">#FF1744</color>
+    <color name="redpd">#D50000</color>
+    <color name="redA">#FF5252</color>
+    <color name="redfont">#FF8A80</color>
+
+
+    <color name="purplep">#D500F9</color>
+    <color name="purplepd">#AA00FF</color>
+    <color name="purpleA">#E040FB</color>
+    <color name="purplefont">#EA80FC</color>
+
+
+
+    <color name="indp">#3D5AFE</color>
+    <color name="inddp">#304FFE</color>
+    <color name="indA">#448AFF</color>
+    <color name="indfont">#82B1FF</color>
+
+    <color name="bluep">#2979FF</color>
+    <color name="bluedp">#2962FF</color>
+    <color name="blueA">#448AFF</color>
+    <color name="bluefont">#82B1FF</color>
+
+    <color name="cyanp">#00E5FF</color>
+    <color name="cyandp">#00B8D4</color>
+    <color name="cyanA">#18FFFF</color>
+    <color name="cyanfont">#84FFFF</color>
+
+
+    <color name="greenp">#00E676</color>
+    <color name="greendp">#00C853</color>
+    <color name="greenA">#69F0AE</color>
+    <color name="greenfont">#B9F6CA</color>
+
+
+
+    <color name="limep">#C6FF00</color>
+    <color name="limedp">#AEEA00</color>
+    <color name="limeA">#EEFF41</color>
+    <color name="limefont">#F4FF81</color>
+
+
+    <color name="yellowp">#FFEA00</color>
+    <color name="yellowdp">#FFD600</color>
+    <color name="yellowA">#FFFF00</color>
+    <color name="yellowfont">#FFFF8D</color>
+
+    <color name="orangep">#FF3D00</color>
+    <color name="orangedp">#DD2C00</color>
+    <color name="orangeA">#FF6E40</color>
+    <color name="orangefont">#FF9E80</color>
 </resources>
