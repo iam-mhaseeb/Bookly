@@ -6,7 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 
-import com.bookly.bookly.Classes.DealItem;
+import com.bookly.bookly.Classes.Book;
 import com.bookly.bookly.Utils.ListFetcher;
 
 import org.jsoup.Jsoup;
@@ -56,7 +56,7 @@ public class AllDeals extends AsyncTask<Void,Void,Void> {
                     Elements title = link.select("h4[class=widget-title]");
                     Elements desc = link.select("p[class=widget-metas type-link]");
                     Elements img = link.select("img[class=cover-image]");
-                    list.add(new DealItem(title.text(),img.attr("abs:src").toString(),desc.text(),"null"));
+                    list.add(new Book(title.text(),img.attr("abs:src").toString(),desc.text(),"null"));
                 }
         } catch (IOException e) {
             e.printStackTrace();

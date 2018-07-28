@@ -4,13 +4,13 @@ package com.bookly.bookly.Classes;
  * Created by Muhammad Haseeb on 2/18/2017.
  */
 
-public class DealItem {
+public class Book {
     String title;
     String image;
     String desc;
     String link;
 
-    public DealItem(String title, String image, String desc, String link) {
+    public Book(String title, String image, String desc, String link) {
         this.title = title;
         this.image = image;
         this.desc = desc;

@@ -1,86 +1,12 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/fontcolor</item>
-    </style>
-    <style name="red">
-        <item name="colorPrimary">@color/redp</item>
-        <item name="colorPrimaryDark">@color/redpd</item>
-        <item name="colorAccent">@color/redA</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/redfont</item>
-    </style>
-    <style name="purple">
-        <item name="colorPrimary">@color/purplep</item>
-        <item name="colorPrimaryDark">@color/purplepd</item>
-        <item name="colorAccent">@color/purpleA</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/purplefont</item>
-    </style>
-    <style name="indigo">
-        <item name="colorPrimary">@color/indp</item>
-        <item name="colorPrimaryDark">@color/inddp</item>
-        <item name="colorAccent">@color/indA</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/indfont</item>
-    </style>
-    <style name="blue">
-        <item name="colorPrimary">@color/bluep</item>
-        <item name="colorPrimaryDark">@color/bluedp</item>
-        <item name="colorAccent">@color/blueA</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/bluefont</item>
-    </style>
-    <style name="cyan">
-        <item name="colorPrimary">@color/cyanp</item>
-        <item name="colorPrimaryDark">@color/cyandp</item>
-        <item name="colorAccent">@color/cyanA</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/cyanfont</item>
-    </style>
-    <style name="green">
-        <item name="colorPrimary">@color/greenp</item>
-        <item name="colorPrimaryDark">@color/greendp</item>
-        <item name="colorAccent">@color/greenA</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/greenfont</item>
-    </style>
-    <style name="lime">
-        <item name="colorPrimary">@color/limep</item>
-        <item name="colorPrimaryDark">@color/limedp</item>
-        <item name="colorAccent">@color/limeA</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/limefont</item>
-    </style>
-    <style name="yellow">
+    <style name="yellow" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/yellowp</item>
         <item name="colorPrimaryDark">@color/yellowdp</item>
         <item name="colorAccent">@color/yellowA</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:textColor">@color/yellowfont</item>
-    </style>
-    <style name="orange">
-        <item name="colorPrimary">@color/orangep</item>
-        <item name="colorPrimaryDark">@color/orangedp</item>
-        <item name="colorAccent">@color/orangeA</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/orangefont</item>
     </style>
 
 </resources>

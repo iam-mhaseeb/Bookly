@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bookly.bookly.Classes.DealItem;
+import com.bookly.bookly.Classes.Book;
 import com.bookly.bookly.R;
 import com.bumptech.glide.Glide;
 
@@ -63,7 +63,7 @@ public class DealsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         switch (holder.getItemViewType()) {
             case 0: {
-                final DealItem album = (DealItem) dealslist.get(holder.getAdapterPosition());
+                final Book album = (Book) dealslist.get(holder.getAdapterPosition());
                 final MyViewHolder viewHolder = (MyViewHolder) holder;
                 viewHolder.title.setText(album.getTitle());
                 Glide.with(mContext)
