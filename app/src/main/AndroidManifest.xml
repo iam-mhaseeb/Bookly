@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".GlobalApplication"
@@ -20,7 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Ativities.AboutActivity"></activity>
+        <activity android:name=".Ativities.AboutActivity" />
+        <activity android:name=".Ativities.BookReader" />
+        <activity android:name=".Ativities.DownloadedBooks"></activity>
     </application>
 
 </manifest>

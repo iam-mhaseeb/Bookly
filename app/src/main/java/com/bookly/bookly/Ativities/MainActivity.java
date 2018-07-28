@@ -59,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case  R.id.about:{
                 startActivity(new Intent(MainActivity.this,AboutActivity.class));
+                return true;
+            }
+            case  R.id.reader:{
+                startActivity(new Intent(MainActivity.this,DownloadedBooks.class));
+                return true;
             }
         }
         return super.onOptionsItemSelected(item);

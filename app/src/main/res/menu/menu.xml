@@ -5,6 +5,11 @@
     <!-- "Mark Favorite", should appear as action button if possible -->
 
     <!-- Settings, should always be in the overflow -->
+    <item android:id="@+id/reader"
+        android:title="Reader"
+        android:icon="@drawable/ic_book"
+        app:showAsAction="ifRoom"/>
+
     <item android:id="@+id/about"
         android:title="About"
         app:showAsAction="never"/>
