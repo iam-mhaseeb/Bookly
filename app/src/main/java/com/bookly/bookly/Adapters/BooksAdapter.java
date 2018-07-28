@@ -42,7 +42,7 @@ public class BooksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder = null;
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View v = inflater.inflate(R.layout.item, parent, false);
+        View v = inflater.inflate(R.layout.book_item, parent, false);
         viewHolder = new MyViewHolder(v);
         return viewHolder;
     }

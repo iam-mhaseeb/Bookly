@@ -2,8 +2,8 @@
 <resources>
 
     <color name="bgM">#CFD8DC</color>
-    <color name="yellowp">#FFEA00</color>
-    <color name="yellowdp">#FFD600</color>
+    <color name="yellowp">#FFC400</color>
+    <color name="yellowdp">#FFAB00</color>
     <color name="yellowA">#FFFF00</color>
     <color name="yellowfont">#FFFF8D</color>
 

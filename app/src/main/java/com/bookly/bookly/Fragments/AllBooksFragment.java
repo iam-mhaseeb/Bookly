@@ -41,7 +41,7 @@ public class AllBooksFragment extends Fragment {
                              Bundle savedInstanceState) {
         //getActivity().getTheme().applyStyle(R.style.red,true);
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_all_deals, container, false);
+        View v =  inflater.inflate(R.layout.fragment_all_books, container, false);
         dList = new ArrayList<Object>();
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(c);

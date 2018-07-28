@@ -6,7 +6,9 @@
         <item name="colorAccent">@color/yellowA</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:textColor">@color/yellowfont</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:textColorSecondary">@color/yellowfont</item>
+        <item name="android:colorForeground">@android:color/black</item>
     </style>
 
 </resources>
