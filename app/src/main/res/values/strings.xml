@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Bookly</string>
+
+    <string name="app_id">ca-app-pub-8036954052686406~8108447123</string>
+
+    <string name="main_activity_intersetial">ca-app-pub-8036954052686406/2449335457</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

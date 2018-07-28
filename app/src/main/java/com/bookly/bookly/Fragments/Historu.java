@@ -20,13 +20,11 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Timer;
-import java.util.TimerTask;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Biography extends Fragment {
+public class Historu extends Fragment {
 
     private RecyclerView recyclerView;
     private Context c;
@@ -35,16 +33,15 @@ public class Biography extends Fragment {
     private ProgressDialog mProgressDialog;
     Timer updateAdsTimer;
     private GridLayoutManager mLayoutManager;
-    public Biography() {
+    public Historu() {
         // Required empty public constructor
     }
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v =  inflater.inflate(R.layout.fragment_biography, container, false);
+        View v =  inflater.inflate(R.layout.fragment_historu, container, false);
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view);
         c = getActivity();
         mLayoutManager = new GridLayoutManager(c,2);
@@ -54,11 +51,11 @@ public class Biography extends Fragment {
         firebaseDatabase = FirebaseDatabase.getInstance();
         FirebaseRecyclerOptions<Book> options =
                 new FirebaseRecyclerOptions.Builder<Book>()
-                        .setQuery(firebaseDatabase.getReference().child("Biography"), Book.class)
+                        .setQuery(firebaseDatabase.getReference().child("History"), Book.class)
                         .build();
         madapter = new FirebaseRecyclerAdapter<Book, BooksHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull BooksHolder holder, int position,  Book model) {
+            protected void onBindViewHolder(@NonNull BooksHolder holder, int position, Book model) {
                 holder.setmContext(c);
                 holder.setImgUrl(model.getImage());
                 holder.setBookTitle(model.getTitle());
@@ -76,7 +73,6 @@ public class Biography extends Fragment {
         mProgressDialog.dismiss();
         return v;
     }
-
     @Override
     public void onStart() {
         super.onStart();
@@ -94,6 +90,5 @@ public class Biography extends Fragment {
         if(updateAdsTimer!=null)
             updateAdsTimer.cancel();
     }
-
 
 }

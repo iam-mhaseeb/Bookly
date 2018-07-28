@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -18,7 +19,19 @@ import android.view.Menu;
 
 import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
 import com.bookly.bookly.Fragments.Biography;
+import com.bookly.bookly.Fragments.CurrentAffairs;
+import com.bookly.bookly.Fragments.EnglishBooks;
+import com.bookly.bookly.Fragments.FamousWriters;
+import com.bookly.bookly.Fragments.Historu;
+import com.bookly.bookly.Fragments.Islamic;
+import com.bookly.bookly.Fragments.Motivation;
+import com.bookly.bookly.Fragments.Pashto;
 import com.bookly.bookly.R;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.kobakei.ratethisapp.RateThisApp;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private Toolbar toolbar;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -47,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
+        MobileAds.initialize(this,getString(R.string.app_id));
         if(!isNetworkAvailable()){
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             builder
@@ -65,6 +80,29 @@ public class MainActivity extends AppCompatActivity {
                         }
                     })	.create().show();
         }
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.main_activity_intersetial));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                mInterstitialAd.show();
+            }
+        });
+        final Handler ha=new Handler();
+        ha.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                ha.postDelayed(this, 420000);
+            }
+        }, 420000);
+        RateThisApp.Config config = new RateThisApp.Config(2, 2);
+        config.setUrl("https://play.google.com/store/apps/details?id=com.islamiccentral.islamiccentral");
+        RateThisApp.init(config);
+        RateThisApp.onCreate(this);
+        RateThisApp.showRateDialogIfNeeded(this);
     }
 
     @Override
@@ -76,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFrag(new Biography(), "Biography");
+        adapter.addFrag(new CurrentAffairs(), "Current Affairs");
+        adapter.addFrag(new EnglishBooks(), "English Books");
+        adapter.addFrag(new FamousWriters(), "Famous Writers");
+        adapter.addFrag(new Historu(), "History");
+        adapter.addFrag(new Islamic(), "Islamic");
+        adapter.addFrag(new Motivation(), "Motivation");
+        adapter.addFrag(new Pashto(), "Pashto");
         viewPager.setAdapter(adapter);
     }
     private boolean isNetworkAvailable() {
