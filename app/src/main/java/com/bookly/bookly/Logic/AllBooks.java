@@ -22,7 +22,7 @@ import java.util.List;
  * Created by Muhammad Haseeb on 2/17/2017.
  */
 
-public class AllDeals extends AsyncTask<Void,Void,Void> {
+public class AllBooks extends AsyncTask<Void,Void,Void> {
     ProgressDialog dialog ;
     Context c;
     private Document htmlDocument;
@@ -30,7 +30,7 @@ public class AllDeals extends AsyncTask<Void,Void,Void> {
     List<Object> list = new ArrayList<Object>();
     ListFetcher.OnDataloadListListener onDataloadListListener;
 
-    public AllDeals(ListFetcher.OnDataloadListListener onDataloadListListener,Context c){
+    public AllBooks(ListFetcher.OnDataloadListListener onDataloadListListener, Context c){
         this.onDataloadListListener = onDataloadListListener;
         this.c =  c ;
     }

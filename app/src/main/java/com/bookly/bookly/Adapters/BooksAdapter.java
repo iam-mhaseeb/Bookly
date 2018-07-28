@@ -18,11 +18,9 @@ import java.util.List;
  * Created by Muhammad Haseeb on 2/18/2017.
  */
 
-public class DealsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class BooksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
     private List<Object> dealslist;
-    //    private List<NativeExpressAdView> adsList = new ArrayList<>();
-    int count = 0;
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, des;
@@ -35,17 +33,9 @@ public class DealsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             thumbnail = (ImageView) view.findViewById(R.id.img);
         }
     }
-
-    public static class ViewHolderAdMob extends RecyclerView.ViewHolder {
-        public ViewHolderAdMob(View view) {
-            super(view);
-        }
-    }
-
-    public DealsAdapter(Context mContext, List<Object> dealslist) {
+    public BooksAdapter(Context mContext, List<Object> dealslist) {
         this.mContext = mContext;
         this.dealslist = dealslist;
-//        this.adsList = adsList;
     }
 
     @Override
@@ -59,26 +49,18 @@ public class DealsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
-
-
-        switch (holder.getItemViewType()) {
-            case 0: {
-                final Book album = (Book) dealslist.get(holder.getAdapterPosition());
-                final MyViewHolder viewHolder = (MyViewHolder) holder;
-                viewHolder.title.setText(album.getTitle());
-                Glide.with(mContext)
-                        .load(album.getImage())
-                        .into(viewHolder.thumbnail);
-                viewHolder.des.setText(album.getDesc());
-                viewHolder.thumbnail.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    }
-                });
-
-                break;
+        final Book album = (Book) dealslist.get(holder.getAdapterPosition());
+        final MyViewHolder viewHolder = (MyViewHolder) holder;
+        viewHolder.title.setText(album.getTitle());
+        Glide.with(mContext)
+                .load(album.getImage())
+                .into(viewHolder.thumbnail);
+        viewHolder.des.setText(album.getDesc());
+        viewHolder.thumbnail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
             }
-        }
+        });
 
     }
 
