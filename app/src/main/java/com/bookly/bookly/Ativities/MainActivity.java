@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
 import com.bookly.bookly.Fragments.Biography;
@@ -98,8 +99,7 @@ public class MainActivity extends AppCompatActivity {
                     })
                     .setNegativeButton("No", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            finish();
-                            System.exit(0);
+                            Toast.makeText(MainActivity.this,"App may not perform well without internet.",Toast.LENGTH_LONG).show();
                         }
                     })	.create().show();
         }
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 420000);
         RateThisApp.Config config = new RateThisApp.Config(2, 2);
-        config.setUrl("https://play.google.com/store/apps/details?id=com.islamiccentral.islamiccentral");
+        config.setUrl("https://play.google.com/store/apps/details?id=com.bookly.bookly");
         RateThisApp.init(config);
         RateThisApp.onCreate(this);
         RateThisApp.showRateDialogIfNeeded(this);

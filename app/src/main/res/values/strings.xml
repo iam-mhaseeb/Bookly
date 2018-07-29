@@ -4,8 +4,8 @@
     <string name="app_id">ca-app-pub-8036954052686406~8108447123</string>
 
     <string name="main_activity_intersetial">ca-app-pub-8036954052686406/2449335457</string>
+    <string name="books_downloader_activity_intersetial">ca-app-pub-8036954052686406/5859534211</string>
+    <string name="books_reader_activity_intersetial">ca-app-pub-8036954052686406/4195523783</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

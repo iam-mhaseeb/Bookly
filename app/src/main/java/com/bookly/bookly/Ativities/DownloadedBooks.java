@@ -3,10 +3,13 @@ package com.bookly.bookly.Ativities;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -23,6 +26,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 
@@ -30,8 +36,11 @@ public class DownloadedBooks extends AppCompatActivity {
 
     private Toolbar toolbar;
     private List<File> pdfFiles;
+    private List<String> pdfFilesNames;
     private ListView recyclerView;
     private ProgressDialog mProgressDialog;
+    private ArrayAdapter<String> arrayAdapter;
+    private InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,26 +50,27 @@ public class DownloadedBooks extends AppCompatActivity {
         getSupportActionBar().setTitle("Downloaded Books");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         pdfFiles = new ArrayList<File>();
+        pdfFilesNames = new ArrayList<String>();
         recyclerView = (ListView) findViewById(R.id.recycler_view);
         mProgressDialog = new ProgressDialog(this);
-        mProgressDialog = ProgressDialog.show(this, "Fetching books for you...", "Please wait!");
-        recyclerView.setAdapter(new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1) {
+        arrayAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1,pdfFilesNames) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 TextView view = (TextView) super.getView(position, convertView, parent);
                 return view;
             }
-        });
+        };
+        recyclerView.setAdapter(arrayAdapter);
         recyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent,
                                     View view,
                                     int position,
                                     long id) {
-                Toast.makeText(getApplicationContext(),
-                        "You have clicked " + position,
-                        Toast.LENGTH_LONG).show();
+                Intent i = new Intent(DownloadedBooks.this,BookReader.class);
+                i.putExtra("File",pdfFiles.get(position).getAbsolutePath());
+                startActivity(i);
             }
         });
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -74,7 +84,13 @@ public class DownloadedBooks extends AppCompatActivity {
                             @Override
                             public void onGranted() {
                                 Toast.makeText(DownloadedBooks.this,"Permissions Granted!",Toast.LENGTH_SHORT).show();
-                                walkdir(Environment.getExternalStorageDirectory());
+                                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        mProgressDialog = ProgressDialog.show(DownloadedBooks.this, "Fetching books for you...", "Please wait!");
+                                        walkdir(Environment.getExternalStorageDirectory());
+                                    }
+                                }, 500);
                             }
 
                             @Override
@@ -87,8 +103,32 @@ public class DownloadedBooks extends AppCompatActivity {
                         });
             }
         }
-        walkdir(Environment.getExternalStorageDirectory());
-        mProgressDialog.dismiss();
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mProgressDialog = ProgressDialog.show(DownloadedBooks.this, "Fetching books for you...", "Please wait!");
+                walkdir(Environment.getExternalStorageDirectory());
+            }
+        }, 500);
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.books_downloader_activity_intersetial));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                mInterstitialAd.show();
+            }
+        });
+        final Handler ha=new Handler();
+        ha.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                ha.postDelayed(this, 420000);
+            }
+        }, 420000);
+
     }
     @Override
     public boolean onSupportNavigateUp() {
@@ -114,11 +154,13 @@ public class DownloadedBooks extends AppCompatActivity {
                     walkdir(listFile[i]);
                 } else {
                     if (listFile[i].getName().endsWith(pdfPattern)){
+                        pdfFilesNames.add(listFile[i].getName().toString());
                         pdfFiles.add(listFile[i]);
-                        mProgressDialog.dismiss();
+                        arrayAdapter.notifyDataSetChanged();
                     }
                 }
             }
         }
+        mProgressDialog.dismiss();
     }
 }
