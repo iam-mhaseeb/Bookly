@@ -28,6 +28,10 @@ import com.bookly.bookly.Fragments.Historu;
 import com.bookly.bookly.Fragments.Islamic;
 import com.bookly.bookly.Fragments.Motivation;
 import com.bookly.bookly.Fragments.Pashto;
+import com.bookly.bookly.Fragments.Political;
+import com.bookly.bookly.Fragments.Social;
+import com.bookly.bookly.Fragments.Sufism;
+import com.bookly.bookly.Fragments.UrduNovels;
 import com.bookly.bookly.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -140,6 +144,10 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFrag(new Islamic(), "Islamic");
         adapter.addFrag(new Motivation(), "Motivation");
         adapter.addFrag(new Pashto(), "Pashto");
+        adapter.addFrag(new Political(), "Political");
+        adapter.addFrag(new Social(), "Social");
+        adapter.addFrag(new Sufism(), "Sufism");
+        adapter.addFrag(new UrduNovels(), "Urdu Novels");
         viewPager.setAdapter(adapter);
     }
     private boolean isNetworkAvailable() {
