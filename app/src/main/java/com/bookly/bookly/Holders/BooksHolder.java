@@ -39,6 +39,16 @@ public class BooksHolder extends RecyclerView.ViewHolder {
         bookImg = (ImageView) itemView.findViewById(R.id.img);
         bookTitle = (TextView) itemView.findViewById(R.id.title);
         downloadBook = (ImageButton) itemView.findViewById(R.id.download);
+        downloadBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!downloadUrl.startsWith("http://") && !downloadUrl.startsWith("https://")){
+                    downloadUrl = "http://" + downloadUrl;
+                }
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(downloadUrl));
+                mContext.startActivity(browserIntent);
+            }
+        });
     }
 
     public String getImgUrl() {
